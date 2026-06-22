@@ -1,2 +1,2 @@
-# Shaloms-WebOS
+# ShalomOS
 Personal website
