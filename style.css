@@ -1,0 +1,44 @@
+.closebutton {
+	color: rgb(137, 8, 8);
+    cursor: pointer;
+    margin-left: 30%;
+}
+
+.window {
+    width: 492px;
+    background-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.windowheader {
+    background-color:rgba(250, 200, 100, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    width: 100%;
+    user-select: none;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+}
+
+.headertext {
+    color: #D22405;
+    font-family: 'Noto Serif', serif;
+    font-size: large;
+    margin: 0px;
+    margin-left: 45%
+}
+
+.selected {
+    filter: blur(2px);
+}
