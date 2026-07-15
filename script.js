@@ -62,24 +62,48 @@ function dragElement(element) {
   }
 }
 
-// Window Elements
-var welcomeScreen = document.querySelector("#welcome");
-var TheArchiveScreen = document.querySelector("#TheArchive");
+// ---Window Elements---
+const welcomeScreen = document.querySelector("#welcome");
+const archiveScreen = document.querySelector("#TheArchive");
 
-// Window Functions
-function closeWindow(element) {
-  element.style.display = "none";
+// Store all application windows here
+const windows = [
+  welcomeScreen,
+  archiveScreen
+];
+
+// --Window Functions--
+
+// Hide every window
+function closeAllWindows() {
+  windows.forEach(window => {
+    window.style.display = "none";
+  });
 }
 
-function openWindow(element) {
-  element.style.display = "flex";
+// Hide a single window
+function closeWindow(windowElement) {
+  windowElement.style.display = "none";
 }
 
+// Open one window and close the rest
+function openWindow(windowElement) {
+  closeAllWindows();
+  windowElement.style.display = "flex";
+}
+
+// Connect a pair of buttons to a window
 function connectWindow(openButton, closeButton, windowElement) {
-  openButton.addEventListener("click", () => openWindow(windowElement));
-  closeButton.addEventListener("click", () => closeWindow(windowElement));
+  openButton.addEventListener("click", () => {
+    openWindow(windowElement);
+  });
+
+  closeButton.addEventListener("click", () => {
+    closeWindow(windowElement);
+  });
 }
 
+// Connect Windows
 connectWindow(
   document.querySelector("#welcomeopen"),
   document.querySelector("#welcomeclose"),
@@ -89,18 +113,18 @@ connectWindow(
 connectWindow(
   document.querySelector("#TheArchiveopen"),
   document.querySelector("#TheArchiveclose"),
-  TheArchiveScreen
+  archiveScreen
 );
 
-// Icon Selection
-var selectedIcon = undefined;
-function selectIcon(icon) { // Stores the currently selected desktop icon
-  
-  // Deselect the previously selected icon
-  if (selectedIcon && selectedIcon !== icon) {
-    deselectIcon(selectedIcon);
-  }
+// Show the Welcome window when the page loads
+openWindow(welcomeScreen);
 
+
+// --Icon Selection--
+var selectedIcon = undefined;
+
+// Store the currently selected desktop icon
+function selectIcon(icon) { 
   icon.classList.add("selected");
   selectedIcon = icon;
 } 
@@ -110,50 +134,17 @@ function deselectIcon(icon){
   selectedIcon = undefined;
 }
 
-function handleIconTap(icon, windowElement)
-{
-  if(icon.classList.contains("selected"))
-  {
-    deselectIcon(icon);
-    openWindow(windowElement);
-  }
-  else
-  {
-    selectIcon(icon);
-  }
+function iconHovering(icon){
+  icon.addEventListener("mouseenter", () => {
+  selectIcon(icon)
+  });
+
+  icon.addEventListener("mouseleave", () => {
+  deselectIcon(icon)
+  });
 }
 
+// Variables for app icon
 const archiveIcon = document.querySelector("#TheArchiveopen");
-
-archiveIcon.addEventListener("click", () => {
-    handleIconTap(archiveIcon, TheArchiveScreen);
-});
-
-// Making selected windows rise to the top
-var biggestIndex = 1;
-var topBar = document.querySelector("#top")
-
-function addWindowTapHandling(element) {
-  element.addEventListener("mousedown", () =>
-    handleWindowTap(element)
-  )
-}
-
-function handleWindowTap(element) {
-  biggestIndex++;  // Increment biggestIndex by 1
-  element.style.zIndex = biggestIndex;
-  topBar.style.zIndex = biggestIndex + 1;
-  deselectIcon(selectedIcon)
-}
-
-function windowOpen(element) {
-  element.style.display = "flex";
-  biggestIndex++;  // Increment biggestIndex by 1
-  element.style.zIndex = biggestIndex;
-  topBar.style.zIndex = biggestIndex + 1;
-}
-
-addWindowTapHandling(welcomeScreen);
-addWindowTapHandling(ThePlanetScreen);
-
+iconHovering(archiveIcon);
 

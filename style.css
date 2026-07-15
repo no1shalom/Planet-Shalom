@@ -42,3 +42,9 @@
 .selected {
     filter: blur(2px);
 }
+
+.scroll-container {
+  height: 200px;        
+  overflow-y: auto; 
+  border: 1px solid #ccc;
+}
