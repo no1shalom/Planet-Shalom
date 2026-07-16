@@ -8,7 +8,9 @@ console.log("JavaScript loaded!");
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
-dragElement(document.querySelector("#TheArchive"));
+dragElement(document.getElementById("TheArchive"));
+dragElement(document.getElementById("Links"));
+dragElement(document.getElementById("Gallery"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -65,11 +67,17 @@ function dragElement(element) {
 // ---Window Elements---
 const welcomeScreen = document.querySelector("#welcome");
 const archiveScreen = document.querySelector("#TheArchive");
+const linksScreen = document.querySelector("#Links");
+const galleryScreen = document.querySelector("#Gallery");
+const photoboothScreen = document.querySelector("#Photobooth");
 
 // Store all application windows here
 const windows = [
   welcomeScreen,
-  archiveScreen
+  archiveScreen,
+  linksScreen,
+  galleryScreen,
+  photoboothScreen
 ];
 
 // --Window Functions--
@@ -103,6 +111,9 @@ function connectWindow(openButton, closeButton, windowElement) {
   });
 }
 
+// Show the Welcome window when the page loads
+openWindow(welcomeScreen);
+
 // Connect Windows
 connectWindow(
   document.querySelector("#welcomeopen"),
@@ -116,9 +127,23 @@ connectWindow(
   archiveScreen
 );
 
-// Show the Welcome window when the page loads
-openWindow(welcomeScreen);
+connectWindow(
+  document.querySelector("#Linksopen"),
+  document.querySelector("#Linksclose"),
+  linksScreen
+);
 
+connectWindow(
+  document.querySelector("#Galleryopen"),
+  document.querySelector("#Galleryclose"),
+  galleryScreen
+);
+
+connectWindow(
+  document.querySelector("#Photoboothopen"),
+  document.querySelector("#Photoboothclose"),
+  photoboothScreen
+);
 
 // --Icon Selection--
 var selectedIcon = undefined;
@@ -147,4 +172,13 @@ function iconHovering(icon){
 // Variables for app icon
 const archiveIcon = document.querySelector("#TheArchiveopen");
 iconHovering(archiveIcon);
+
+const linksIcon = document.querySelector("#Linksopen");
+iconHovering(linksIcon);
+
+const galleryIcon = document.querySelector("#Galleryopen");
+iconHovering(galleryIcon);
+
+const photoboothIcon = document.querySelector("#Photoboothopen");
+iconHovering(photoboothIcon);
 
