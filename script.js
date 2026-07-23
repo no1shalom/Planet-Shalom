@@ -11,6 +11,7 @@ dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("TheArchive"));
 dragElement(document.getElementById("Links"));
 dragElement(document.getElementById("Gallery"));
+dragElement(document.getElementById("ContactMe"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -70,6 +71,7 @@ const archiveScreen = document.querySelector("#TheArchive");
 const linksScreen = document.querySelector("#Links");
 const galleryScreen = document.querySelector("#Gallery");
 const photoboothScreen = document.querySelector("#Photobooth");
+const contactMeScreen = document.querySelector("#ContactMe");
 
 // Store all application windows here
 const windows = [
@@ -77,7 +79,8 @@ const windows = [
   archiveScreen,
   linksScreen,
   galleryScreen,
-  photoboothScreen
+  photoboothScreen,
+  contactMeScreen
 ];
 
 // --Window Functions--
@@ -145,40 +148,135 @@ connectWindow(
   photoboothScreen
 );
 
-// --Icon Selection--
-var selectedIcon = undefined;
+connectWindow(
+  document.querySelector("#ContactMeopen"),
+  document.querySelector("#ContactMeclose"),
+  contactMeScreen
+);
 
-// Store the currently selected desktop icon
-function selectIcon(icon) { 
-  icon.classList.add("selected");
-  selectedIcon = icon;
-} 
+// Displaying my Software Projects
+const sengProjects = [
+  {
+    title: "Planet Shalom",
+    image: "./images/sunset1.jpg",
+    description: "My portfolio as a web-based operating system.",
+    github: "https://github.com/no1shalom/Planet-Shalom",
+    website: "https://yourwebsite.com",
+    tech: "HTML, CSS, JavaScript"
+    }
+  ];
 
-function deselectIcon(icon){
-  icon.classList.remove("selected");
-  selectedIcon = undefined;
-}
+const sengContainer = document.getElementById("sengProjects-container");
 
-function iconHovering(icon){
-  icon.addEventListener("mouseenter", () => {
-  selectIcon(icon)
-  });
+sengProjects.forEach(project => {
+    const card = document.createElement("div");
+    card.className = "project-card";
 
-  icon.addEventListener("mouseleave", () => {
-  deselectIcon(icon)
-  });
-}
+    card.innerHTML = `
+        <img
+            src="${project.image}"
+            alt="${project.title}"
+            class="project-image"
+        >
 
-// Variables for app icon
-const archiveIcon = document.querySelector("#TheArchiveopen");
-iconHovering(archiveIcon);
+        <div class="project-content">
+          <div 
+            style="
+              display: flex; 
+              gap: 10%;
+              align-items: centre">
 
-const linksIcon = document.querySelector("#Linksopen");
-iconHovering(linksIcon);
+              <h2 class="project-title">
+                  ${project.title}
+              </h2>
 
-const galleryIcon = document.querySelector("#Galleryopen");
-iconHovering(galleryIcon);
+              <a
+                href="${project.github}"
+                target="_blank"
+                class="project-link">
+                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                    <i 
+                    style="color:rgb(248, 228, 209);"
+                    class="fa-brands fa-github"></i>
+                  </a>
+              </a>
+          </div>
 
-const photoboothIcon = document.querySelector("#Photoboothopen");
-iconHovering(photoboothIcon);
+          <p class="project-description">
+              ${project.description}
+          </p>
 
+            ${
+              project.website
+              ? `
+                <a
+                  href="${project.website}"
+                  target="_blank"
+                  class="project-link secondary">
+                  Visit website →
+                </a>
+                `
+                : ""
+            }
+          <div class="technologies">
+            ${project.tech}
+          </div>
+        </div>
+    `;
+    sengContainer.appendChild(card);
+
+});
+
+// Displaying my Hardware Projects
+const hardwareProjects = [
+  {
+    title: "Tester",
+    image: "./images/sunset1.jpg",
+    description: "I'm just testing.",
+    page: "./projects/tester.html",
+    tech: "HTML, CSS, JavaScript"
+    }
+  ];
+
+const hardwareContainer = document.getElementById("hardwareProjects-container");
+
+hardwareProjects.forEach(project => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+
+    card.innerHTML = `
+        <img
+            src="${project.image}"
+            alt="${project.title}"
+            class="project-image"
+        >
+
+        <div class="project-content">
+
+            <h2 class="project-title">
+                ${project.title}
+            </h2>
+
+            <p class="project-description">
+                ${project.description}
+            </p>
+
+            ${
+                project.page
+                    ? `
+                    <a
+                        href="${project.page}"
+                        class="project-link secondary"
+                    >
+                        Read more →
+                    </a>
+                    `
+                    : ""
+            }
+            <div class="technologies">
+                ${project.tech}
+            </div>
+        </div>
+    `;
+    hardwareContainer.appendChild(card);
+});

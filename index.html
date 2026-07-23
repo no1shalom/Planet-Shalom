@@ -11,6 +11,9 @@
 
     <link rel="stylesheet" 
       href="https://fonts.googleapis.com/css?family=Cascadia Code">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   </head>
 
   <title>Planet Shalom</title>
@@ -32,7 +35,7 @@
       width: 100%; 
       display: flex; 
       backdrop-filter: blur(10px); 
-      background-color: rgba(200, 249, 189, 0.5); 
+      background-color: rgba(188, 231, 178, 0.5); 
       color: #D22405; 
       font-family: 'Noto Serif', serif; 
       justify-content: space-between; 
@@ -155,6 +158,26 @@
           Photobooth
         </p>
       </div>
+
+      <!--Contact Me-->
+      <div
+      style="
+        text-align: center;
+        padding: 16px;
+        width: fit-content">
+        
+        <img 
+        id="ContactMeopen"
+        src="./images/PlanetShalom.png"
+        class="app">
+
+        <p
+        style="
+          margin: 0px;
+          color: #FFFFFF;">
+          Contact Me
+        </p>
+      </div>
     </div>
 
     <!--The Archive Window-->
@@ -205,7 +228,7 @@
 
             <p
             style="
-              color: #D22405;
+            color: #AE341C;
               font-family: 'Noto Serif', serif;
               font-size: large;
               margin-top: 10px;">
@@ -221,6 +244,14 @@
           align-items: center;
           gap: 35px;">
 
+          <h2 
+          style="
+            color: #D60A46;
+            font-family: 'Noto Serif', serif;
+            margin-bottom: 10px;">
+            Hii, I'm Shalom!
+          </h2>
+
           <div
           style="
             display: flex;
@@ -228,25 +259,64 @@
             align-items: center;
             gap: 35px;">
 
-            <p 
-            style="
-              color: #C54444;
-              font-family: 'Noto Serif', serif;
-              font-size: large;">
-              I think I can call myself a creative because I like to make things that I imagine. 
-              So I made this space to store my creative works. Although I'm a Software Engineering 
-              student, I don't have any software or hardware projects to show here yet. I'm a slow learner.
-              I'm going to just put this quote from Einstein here: "A ship is always safe at shore,
-              but that is not what it is built for."
-            </p>
+            <div>
+              <p 
+              style="
+                color: #AE341C;
+                font-family: 'Noto Serif', serif;
+                font-size: large;">
+                I develop websites and make apps.
+              </p>
 
-            <img
-            src="./images/AboutMePic.jpg"
-            style="
-              height: auto;
-              width: 180px;  
-              object-fit: cover;
-              border-radius: 10px;"/>
+              <p 
+              style="
+                color: #AE341C;
+                font-family: 'Noto Serif', serif;
+                font-size: large;">
+                I'm currently a Software Engineering student, 
+                and I've been recognized on my university's Dean's List. I 
+                continuously challenge myself by participating in hackathons 
+                and other STEM competitions.
+              </p>
+
+              <p 
+              style="
+                color: #AE341C;
+                font-family: 'Noto Serif', serif;
+                font-size: large;">
+                My other hobbies are crocheting, sewing, and painting. 
+                I share some of my creations on my <a class="link" href="https://ca.pinterest.com/no1shalom/">Pinterest</a>.
+              </p>
+            </div>
+
+            <div>
+              <img
+              src="./images/AboutMePic.jpg"
+              style="
+                height: auto;
+                width: 180px;  
+                object-fit: cover;
+                border-radius: 10px;"/>
+              <p 
+              style="
+                color: #AE341C;
+                font-family: 'Noto Serif', serif;
+                font-size: x-small;">
+                "Imagination is more important than knowledge." -Einstein
+              </p>
+            </div>
+          </div>
+          
+          <h2 
+          style="
+            color: #D60A46;                                                                                                                                                                                      
+            font-family: 'Noto Serif', serif;
+            margin-bottom: 10px;">
+            Software
+          </h2>
+
+          <div 
+            id="sengProjects-container">
           </div>
 
           <h2 
@@ -254,30 +324,13 @@
             color: #D60A46;
             font-family: 'Noto Serif', serif;
             margin-bottom: 10px;">
-            Software
-          </h2>
-          <p 
-          style="
-            color: #C54444;
-            font-family: 'Noto Serif', serif;
-            font-size: large;">
-            Nothing for now. Coming soon!
-          </p> 
-          
-          <h2 
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
             Hardware
           </h2>
-          <p 
-          style="
-            color: #C54444;
-            font-family: 'Noto Serif', serif;
-            font-size: large;">
-            Nothing for now. Coming soon!
-          </p> 
+
+          <div 
+            id="hardwareProjects-container"
+            style="cursor: pointer;">
+          </div> 
 
           <h2 
           style="
@@ -317,7 +370,7 @@
       class="windowheader"
       id="Linksheader">
         <p
-        class="headertext">
+        class="headertext";>
           Welcome
         </p>
        
@@ -352,7 +405,7 @@
 
           <p
           style="
-            color: #D22405;
+            color: #AE341C;
             font-family: 'Noto Serif', serif;
             font-size: large;
             margin-top: 10px;">
@@ -366,19 +419,24 @@
           justify-content: center;
           align-items: center;
           text-align: center;
-          background-color: rgba(250, 245, 226, 0.75);
-          border-radius: 10px;">
-          <a href="https://ca.pinterest.com/no1shalom/">
-            <img src="./images/pinterest.png" class="app" style="background-color: transparent;"/></a>
+          display: flex;
+          gap: 5%;">
 
-          <a href="www.linkedin.com/in/shalom-abdulai">
-            <img src="./images/linkedin.png" class="app" style="background-color: transparent;"/></a>
-          
-          <a href="https://www.instagram.com/no1shalom">
-            <img src="./images/instagram.png" class="app" style="background-color: transparent;"/></a>
+          <a href="https://github.com/no1shalom" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+          </a>
 
-          <a href="https://github.com/no1shalom">
-            <img src="./images/github.png" class="app" style="background-color: transparent;"/></a>
+          <a href="https://www.linkedin.com/in/shalom-abdulai/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+
+          <a href="https://www.instagram.com/no1shalom/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://www.pinterest.com/no1shalom/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-pinterest"></i>
+          </a>
         </div>
       </div> 
     </div>  
@@ -509,6 +567,69 @@
         </div>
       </div>
     </div>
+
+    <!--Contact Me Window-->
+    <div
+    class="window"
+    id="ContactMe"
+    style="
+      display: none;
+      width: 700px;
+      height: 500px;">
+
+      <div
+      class="windowheader"
+      id="ContactMeheader">
+        <p
+        class="headertext">
+          Welcome
+        </p>
+       
+        <div 
+        class="closebutton"
+        id="ContactMeclose">
+          Close
+        </div>
+      </div>
+
+      <!--Contact Me Window Content-->
+      <div
+      class="windowcontent scroll-container"
+      style="
+        background-color: rgba(250, 245, 226, 0.75);">
+
+        <!--Contact Me Window Title-->
+        <div 
+        style="
+          justify-content: center;
+          align-items: center;
+          text-align: center;">
+
+          <h1
+          style="
+            color: #D60A46;
+            font-family: 'Noto Serif', serif;
+            font-size: xxx-large;
+            margin: 0;">
+            Contact Me
+          </h1>
+
+          <p
+          style="
+            color: #D22405;
+            font-family: 'Noto Serif', serif;
+            font-size: large;
+            margin-top: 10px;">
+            Let's work together!
+          <p> 
+        </div>
+       
+        <!--Contact Me Window Body-->
+        <div>
+          Lorem Ipsum...
+        </div>
+      </div>
+    </div>
  
     <!--The Home Window-->
     <div
@@ -571,3 +692,4 @@
     </div>
   </body>
 </html>
+

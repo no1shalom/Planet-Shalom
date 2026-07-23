@@ -3,6 +3,160 @@
     cursor: pointer;
     margin-left: 30%;
 }
+.closebutton {
+	color: rgb(137, 8, 8);
+    cursor: pointer;
+    margin-left: 30%;
+}
+
+.window {
+    width: 492px;
+    background-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.windowheader {
+    background-color:rgba(250, 200, 100, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    width: 100%;
+    user-select: none;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+}
+
+.windowcontent {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.headertext {
+    color: #D22405;
+    font-family: 'Noto Serif', serif;
+    font-size: large;
+    margin: 0px;
+    margin-left: 45%
+}
+
+.scroll-container {        
+  overflow-y: auto;     
+  border: 1px solid #ccc;
+}
+
+.crochetPics {
+    width: 180px; 
+    height: 220px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-bottom: 5%;
+}
+
+.artPics {
+    width: auto; 
+    height: 220px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-bottom: 5%;
+}
+
+.app {
+    cursor: pointer;
+    width: 50px; 
+    height: auto;
+    background-color: #F8E2E2;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.app:hover {
+    filter: blur(2px);
+}
+
+.link {
+  color: #AE341C;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.project-card{
+    width: 240px;
+    background: #D60A46;
+    border-radius: 15px;
+    color:rgb(248, 228, 209);
+    overflow: hidden;
+    transition:.3s;
+    margin-bottom: 5%;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.project-image{
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    display:block;
+}
+
+.project-content{
+    padding:15px;
+}
+
+.project-title{
+    margin-bottom:16px;
+}
+
+.project-description{
+    line-height: 1.5;
+    font-family: 'Noto Serif', serif;
+}
+
+.project-link{
+    color:rgb(248, 228, 209);
+    display: inline-block;
+    margin: 10px 0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.technologies{
+    font-family: 'Noto Serif', serif;
+    line-height:1.5;
+}
+
+.fa-brands{
+    font-size: 25px;
+    color: #D60A46;
+    transition:.25s;
+}
+
+.fa-brands:hover{
+    color: #AE341C;
+    transform:scale(1.15);
+}
+
 
 .window {
     width: 492px;
