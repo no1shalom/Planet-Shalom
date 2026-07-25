@@ -65,6 +65,25 @@ function dragElement(element) {
   }
 }
 
+// Keep windows within the actually-visible area when the keyboard opens/closes
+if (window.visualViewport) {
+  const setVvh = () => {
+    document.documentElement.style.setProperty(
+      '--vvh', `${window.visualViewport.height}px`
+    );
+  };
+  window.visualViewport.addEventListener('resize', setVvh);
+  setVvh();
+}
+
+document.addEventListener('focusin', (e) => {
+  if (e.target.matches('input, textarea')) {
+    setTimeout(() => {
+      e.target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }, 300); // give the keyboard time to finish animating in
+  }
+});
+
 // ---Window Elements---
 const welcomeScreen = document.querySelector("#welcome");
 const archiveScreen = document.querySelector("#TheArchive");
@@ -280,3 +299,59 @@ hardwareProjects.forEach(project => {
     `;
     hardwareContainer.appendChild(card);
 });
+
+// Displaying Pictures in Gallery
+const gallery = [
+  {
+    image: "images/gallery/hand warmers.png",
+    title: "Hackathon Winner",
+    description: "Won 1st place developing an educational platform."
+  },
+
+  {
+    image: "images/gallery/presentation.jpg",
+    title: "Conference Talk",
+    description: "Presented my AI research to over 150 attendees."
+  },
+
+  {
+    image: "images/gallery/deanslist.jpg",
+    title: "Dean's List",
+    description: "Recognized for academic excellence."
+  }
+];
+
+const grid = document.getElementById("galleryGrid");
+
+gallery.forEach(photo => {
+  const card = document.createElement("div");
+  card.className = "gallery-card";
+  card.innerHTML = `
+    <img src="${photo.image}" alt="${photo.title}">
+
+    <div class="overlay">
+      <h3>${photo.title}</h3>
+      <p>${photo.description}</p>
+    </div>
+    `;
+    grid.appendChild(card);
+});
+
+// Contact form -> opens the visitor's email client with everything pre-filled
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("cm-name").value;
+    const email = document.getElementById("cm-email").value;
+    const msg = document.getElementById("cm-msg").value;
+
+    const subject = encodeURIComponent(`Message from ${name} via Planet Shalom`);
+    const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+
+    window.location.href = `mailto:shalabdulai@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
+

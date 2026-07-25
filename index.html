@@ -2,6 +2,8 @@
 <html>
 
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+
     <script src="./script.js" type="module"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -24,159 +26,78 @@
     background-size: cover; 
     height: 100vh;">
 
-    <!--Top Bar-->
+    <!-- Top Bar -->
     <div 
-    id="topbar"
-    style="
-      position: absolute;
-      top: 3%; 
-      left: 50%; 
-      transform: translate(-50%, -50%);
-      width: 100%; 
-      display: flex; 
-      backdrop-filter: blur(10px); 
-      background-color: rgba(188, 231, 178, 0.5); 
-      color: #D22405; 
-      font-family: 'Noto Serif', serif; 
-      justify-content: space-between; 
-      gap: 32px">
-      
-      <p 
-      id="welcomeopen"
-      style="
-        cursor: pointer;
-        margin-left: 100px; 
-        background-color: rgba(255, 255, 255, 0.5); 
-        padding: 4px 12px; 
-        border-radius: 16px;">
+    id="topbar">
+      <p id="welcomeopen" class="topbar-item">
         Planet Shalom
       </p>
 
-      <p 
-      style="
-        margin-left: 50px; 
-        background-color: rgba(255, 255, 255, 0.5); 
-        padding: 4px 12px; 
-        border-radius: 16px;
-        color: #CF244C">
+      <p class="topbar-item decoration">
         ⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢
       </p>
-
-      <p 
-      id="timeElement" 
-      style="margin-right: 100px; 
-        background-color:  rgba(255, 255, 255, 0.5); 
-        padding: 4px 12px; 
-        border-radius: 16px;">
+    
+      <p id="timeElement" class="topbar-item">
         Time O'clock
       </p>
     </div>
 
-    <!--Desktop Apps-->
-    <div
-    style="
-      padding: 60px;
-      padding-left: 16px;
-      width: fit-content">
+    <!-- Desktop Apps -->
+    <div class="desktop-apps">
 
-      <!--The Archive-->
-      <div
-      style="
-        text-align: center;
-        padding: 16px;
-        width: fit-content">
-        
+      <!-- The Archive -->
+      <div class="desktop-icon">
         <img 
         id="TheArchiveopen"
-        src="./images/PlanetShalom.png"
+        src="./images/icons/PlanetShalom.png"
         class="app">
-
-        <p
-        style="
-          margin: 0px;
-          color: #FFFFFF;">
-          The Archive
-        </p>
+          <p class="app-label">
+            The Archive
+          </p>
       </div>
 
-      <!--Links-->
-      <div
-      style="
-        text-align: center;
-        padding: 16px;
-        width: fit-content">
-        
+      <!-- Links -->
+      <div class="desktop-icon">
         <img 
         id="Linksopen"
-        src="./images/PlanetShalom.png"
+        src="./images/icons/Links.png"
         class="app">
-
-        <p
-        style="
-          margin: 0px;
-          color: #FFFFFF;">
-          Links
-        </p>
+          <p class="app-label">
+            Links
+          </p>
       </div>
-
-      <!--Gallery-->
-      <div
-      style="
-        text-align: center;
-        padding: 16px;
-        width: fit-content">
-        
+      
+      <!-- Gallery -->
+      <div class="desktop-icon">
         <img 
         id="Galleryopen"
-        src="./images/PlanetShalom.png"
+        src="./images/icons/PlanetShalom.png"
         class="app">
-
-        <p
-        style="
-          margin: 0px;
-          color: #FFFFFF;">
-          Gallery
-        </p>
+          <p class="app-label">
+            Gallery
+          </p>
       </div>
 
-      <!--Photobooth-->
-      <div
-      style="
-        text-align: center;
-        padding: 16px;
-        width: fit-content">
-        
+      <!-- Photobooth -->
+      <div class="desktop-icon">
         <img 
         id="Photoboothopen"
-        src="./images/PlanetShalom.png"
+        src="./images/icons/PlanetShalom.png"
         class="app">
-
-        <p
-        style="
-          margin: 0px;
-          color: #FFFFFF;">
-          Photobooth
-        </p>
+          <p class="app-label">
+            Camera
+          </p>
       </div>
 
-      <!--Contact Me-->
-      <div
-      style="
-        text-align: center;
-        padding: 16px;
-        width: fit-content">
-        
+      <!-- Contact Me -->
+      <div class="desktop-icon">
         <img 
         id="ContactMeopen"
-        src="./images/PlanetShalom.png"
+        src="./images/icons/PlanetShalom.png"
         class="app">
-
-        <p
-        style="
-          margin: 0px;
-          color: #FFFFFF;">
-          Contact Me
-        </p>
+          <p class="app-label">
+            Contact Me
+          </p>
       </div>
     </div>
 
@@ -186,7 +107,9 @@
     id="TheArchive"
     style="
       display: none;
-      width: 800px;">
+      width: min(800px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;">
 
       <div
       class="windowheader"
@@ -208,8 +131,8 @@
       class="scroll-container"
       style="
         background-color: rgba(250, 245, 226, 0.75);
-        padding: 30px;
-        height: 400px;">
+        padding: clamp(16px, 3vw, 30px);
+        height: min(400px, 75vh);">
 
         <!--The Archive Window Title-->
           <div 
@@ -228,11 +151,11 @@
 
             <p
             style="
-            color: #AE341C;
+              color: #AE341C;
               font-family: 'Noto Serif', serif;
               font-size: large;
-              margin-top: 10px;">
-              Shalom's Creative Portfolio :)
+              margin-top: clamp(8px, 2vw, 10px);">
+              Shalom's Creative Portfolio
             <p> 
           </div>
        
@@ -242,13 +165,13 @@
         style="
           justify-content: center;
           align-items: center;
-          gap: 35px;">
+          gap: clamp(16px, 3vw, 35px);">
 
           <h2 
           style="
             color: #D60A46;
             font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
+            margin-bottom: clamp(8px, 2vw, 10px);">
             Hii, I'm Shalom!
           </h2>
 
@@ -257,7 +180,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 35px;">
+            gap: clamp(16px, 3vw, 35px);">
 
             <div>
               <p 
@@ -265,7 +188,8 @@
                 color: #AE341C;
                 font-family: 'Noto Serif', serif;
                 font-size: large;">
-                I develop websites and make apps.
+                I'm a Software Engineering student born in Nigeria, now based in
+                British Columbia, Canada.
               </p>
 
               <p 
@@ -273,10 +197,8 @@
                 color: #AE341C;
                 font-family: 'Noto Serif', serif;
                 font-size: large;">
-                I'm currently a Software Engineering student, 
-                and I've been recognized on my university's Dean's List. I 
-                continuously challenge myself by participating in hackathons 
-                and other STEM competitions.
+                I build interactive, fun websites. I believe that engineering should
+                be considered a creative field.
               </p>
 
               <p 
@@ -284,8 +206,8 @@
                 color: #AE341C;
                 font-family: 'Noto Serif', serif;
                 font-size: large;">
-                My other hobbies are crocheting, sewing, and painting. 
-                I share some of my creations on my <a class="link" href="https://ca.pinterest.com/no1shalom/">Pinterest</a>.
+                My other hobbies are crocheting and sewing. 
+                I share some of my creations on <a class="link" href="https://ca.pinterest.com/no1shalom/">Pinterest</a>.
               </p>
             </div>
 
@@ -294,7 +216,7 @@
               src="./images/AboutMePic.jpg"
               style="
                 height: auto;
-                width: 180px;  
+                width: min(180px, 30vh);  
                 object-fit: cover;
                 border-radius: 10px;"/>
               <p 
@@ -311,7 +233,7 @@
           style="
             color: #D60A46;                                                                                                                                                                                      
             font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
+            margin-bottom: clamp(8px, 2vw, 10px);">
             Software
           </h2>
 
@@ -323,7 +245,7 @@
           style="
             color: #D60A46;
             font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
+            margin-bottom: clamp(8px, 2vw, 10px);">
             Hardware
           </h2>
 
@@ -340,21 +262,10 @@
             Crochet
           </h2>
 
-          <img src="./images/crochet top.png" class="crochetPics"/>
-          <img src="./images/granny square bag.jpg" class="crochetPics"/>
-          <img src="./images/crochet shorts.jpg" class="crochetPics"/>
-          <img src="./images/Beach tote bag.jpg" class="crochetPics"/>
-
-          <h2 
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
-            Art
-          </h2>
-          <img src="./images/sunset painting.jpg" class="artPics"/> 
-          <img src="./images/sunset1.jpg" class="artPics"/>
-          <img src="./images/sunset2.jpg" class="artPics"/>
+          <img src="./images/crochet/crochet top.png" class="crochetPics"/>
+          <img src="./images/crochet/granny square bag.jpg" class="crochetPics"/>
+          <img src="./images/crochet/crochet shorts.jpg" class="crochetPics"/>
+          <img src="./images/crochet/Beach tote bag.jpg" class="crochetPics"/>
         </div> 
       </div> 
     </div>  
@@ -408,7 +319,7 @@
             color: #AE341C;
             font-family: 'Noto Serif', serif;
             font-size: large;
-            margin-top: 10px;">
+            margin-bottom: clamp(8px, 2vw, 10px);">
             Shalom's Socials (let's connect!)
           <p> 
         </div>
@@ -420,7 +331,7 @@
           align-items: center;
           text-align: center;
           display: flex;
-          gap: 5%;">
+          gap: clamp(12px, 3vw, 32px);">
 
           <a href="https://github.com/no1shalom" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-github"></i>
@@ -447,8 +358,8 @@
     id="Gallery"
     style="
       display: none;
-      width: 700px;
-      height: 500px;">
+      width: min(900px, 95vw);
+      height: min(600px, 80vh);">
 
       <div
       class="windowheader"
@@ -489,17 +400,17 @@
 
           <p
           style="
-            color: #D22405;
+            color: #AE341C;
             font-family: 'Noto Serif', serif;
             font-size: large;
-            margin-top: 10px;">
-            Shalom's Museum of Accomplishments and Failures
+            margin-bottom: clamp(8px, 2vw, 10px);">
+            Shalom's Museum of Accomplishments (and Failures)
           <p> 
         </div>
        
         <!--Gallery Window Body-->
-        <div>
-          Lorem Ipsum...
+        <div id="galleryGrid" class="gallery-grid">
+         
         </div>
       </div>
     </div>
@@ -510,8 +421,8 @@
     id="Photobooth"
     style="
       display: none;
-      width: 700px;
-      height: 500px;">
+      width: min(700px, 80vh);
+      height: min(500px, 60vh);">
 
       <div
       class="windowheader"
@@ -555,7 +466,7 @@
             color: #D22405;
             font-family: 'Noto Serif', serif;
             font-size: large;
-            margin-top: 10px;">
+            margin-top: clamp(8px, 2vw, 10px);">
             Get your very own Planet Shalom souvenir!<br>
             Proof that you've landed on my planet :)
           <p> 
@@ -574,8 +485,8 @@
     id="ContactMe"
     style="
       display: none;
-      width: 700px;
-      height: 500px;">
+      width: min(700px, 80vh);
+      height: min(500px, 60vh);">
 
       <div
       class="windowheader"
@@ -619,15 +530,27 @@
             color: #D22405;
             font-family: 'Noto Serif', serif;
             font-size: large;
-            margin-top: 10px;">
+            margin-top: clamp(8px, 2vw, 10px);">
             Let's work together!
           <p> 
         </div>
        
         <!--Contact Me Window Body-->
-        <div>
-          Lorem Ipsum...
-        </div>
+        <form id="contactForm" class="contact-form">
+          <div class="field-row">
+            <label for="cm-name">Name</label>
+            <input id="cm-name" type="text" required>
+          </div>
+          <div class="field-row">
+            <label for="cm-email">Your Email</label>
+            <input id="cm-email" type="email" required>
+          </div>
+          <div class="field-row">
+            <label for="cm-msg">Message</label>
+            <textarea id="cm-msg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="contact-submit">Send</button>
+        </form>
       </div>
     </div>
  
@@ -654,16 +577,17 @@
       <div
       style="
         display: flex;
-        gap: 35px;
+        gap: clamp(18px, 5vw, 35px);
         align-items: center;
-        padding: 20px;
+        padding: clamp(12px, 3vw, 20px);
         background-color: rgba(255, 255, 255, 0.5);">
 
         <img
         src="./images/shalom.png"
         style="
-            height: 100px;
-            width: 150px;  
+            width: min(150px, 40vw);
+            height: auto;
+            aspect-ratio: 3 / 2; 
             object-fit: cover;
             border-radius: 10px;"/>
 
@@ -684,7 +608,7 @@
             color: #D22405;
             font-family: 'Noto Serif', serif;
             font-size: large;
-            margin-top: 10px;">
+            margin-top: clamp(8px, 2vw, 10px);">
             Greetings! Thanks for stopping by
           <p>
         </div>
