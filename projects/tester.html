@@ -1,102 +1,106 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-    <script src="../script.js" type="module"></script>
+  <title>Tester — Planet Shalom</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Serif">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
 
-    <link rel="stylesheet" 
-      href="https://fonts.googleapis.com/css?family=Noto Serif">
+<body 
+style="
+    background-image:url(../images/wallpaper.gif); 
+    background-size:cover; 
+    min-height:100vh; 
+    margin:0;">
 
-    <link rel="stylesheet" 
-      href="https://fonts.googleapis.com/css?family=Cascadia Code">
-  </head>
+  <div
+  class="window"
+  style="
+    width: min(700px, 95vw);
+    max-height: 90vh;
+    overflow-y: auto;">
 
-  <title>Planet Shalom</title>
+    <div class="windowheader">
+      <p class="headertext">Tester — Welcome</p>
+      <a 
+      href="../index.html" 
+      class="closebutton" 
+      style="
+        text-decoration:none;">
+        Close
+      </a>
+    </div>
 
-    <body 
+    <div 
+    class="windowcontent" 
     style="
-        background-image: url(../images/wallpaper.gif); 
-        background-size: cover; 
-        height: 100vh;">
+        background-color: rgba(250,245,226,0.75);">
 
-        <!--Top Bar-->
-        <div 
-        id="topbar"
+        <img 
+        src="../images/sunset1.jpg" 
+        alt="Tester project" 
+        class="hardware-hero-img">
+
+        <h1 
         style="
-        position: absolute;
-        top: 3%; 
-        left: 50%; 
-        transform: translate(-50%, -50%);
-        width: 100%; 
-        display: flex; 
-        backdrop-filter: blur(10px); 
-        background-color: rgba(188, 231, 178, 0.5); 
-        color: #D22405; 
-        font-family: 'Noto Serif', serif; 
-        justify-content: space-between; 
-        gap: 32px">
-        
-        <p 
-        id="welcomeopen"
-        style="
-            cursor: pointer;
-            margin-left: 100px; 
-            background-color: rgba(255, 255, 255, 0.5); 
-            padding: 4px 12px; 
-            border-radius: 16px;">
-            Planet Shalom
-        </p>
+            color:#D60A46; 
+            font-family:'Noto Serif', serif; 
+            margin:0 0 6px;">
+            Tester
+        </h1>
 
         <p 
         style="
-            margin-left: 50px; 
-            background-color: rgba(255, 255, 255, 0.5); 
-            padding: 4px 12px; 
-            border-radius: 16px;
-            color: #CF244C">
-            ⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢
+            color:#AE341C; 
+            font-family:'Noto Serif', serif; 
+            font-size:large; 
+            margin:0 0 20px;">
+            I'm just testing.
         </p>
 
-        <p 
-        id="timeElement" 
-        style="margin-right: 100px; 
-            background-color:  rgba(255, 255, 255, 0.5); 
-            padding: 4px 12px; 
-            border-radius: 16px;">
-            Time O'clock
-        </p>
-        </div>
+        <h2 
+        style="
+            color:#D60A46; 
+            font-family:'Noto Serif', serif; 
+            margin-bottom:10px;">
+            Specifications
+        </h2>
 
-        <h1>Custom Built</h1>
-
-        <p>
-            test!.
-        </p>
-
-        <h2>Specifications</h2>
-
-        <ul>
-            <li>AMD Ryzen 7 5800X</li>
-            <li>RTX 4070 Ti</li>
-            <li>NZXT N7 B550</li>
-            <li>HYTE Y60</li>
+        <ul class="hardware-spec-list">
+            <li>Microcontroller: —</li>
+            <li>Sensors: —</li>
+            <li>Power source: —</li>
+            <li>Dimensions: —</li>
         </ul>
 
-        <h2>Gallery</h2>
+        <h2 
+        style="
+            color:#D60A46; 
+            font-family:'Noto Serif', 
+            serif; margin:20px 0 10px;">
+            Build Process
+        </h2>
 
-        <!-- More pictures -->
-
-        <h2>Build Process</h2>
-
-        <p>
-            Describe how you designed and assembled it.
+        <p 
+        style=" 
+            color:#AE341C; 
+            font-family:'Noto Serif', serif; 
+            font-size: medium; 
+            margin:0 0 20px;">
+            Walk through the build here — what you started with, the challenges
+            along the way, and how you solved them. Feel free to break this into
+            smaller steps or add photos as you go.
         </p>
 
-        <a href="../index.html">
-            ← Back to Portfolio
-        </a>
+        <a href="../index.html" class="link">← Back to Planet Shalom</a>
 
-    </body>
+    </div>
+  </div>
+
+</body>
 </html>
