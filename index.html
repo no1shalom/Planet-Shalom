@@ -29,11 +29,12 @@
     <!-- Top Bar -->
     <div 
     id="topbar">
-      <p id="welcomeopen" class="topbar-item">
+      <p id="welcomeopen" class="topbar-item"
+      style="cursor: pointer;">
         Planet Shalom
       </p>
 
-      <p class="topbar-item decoration">
+      <p class="topbar-item">
         ⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢⋆‧°𓏲ּ𝄢
       </p>
     
@@ -43,7 +44,8 @@
     </div>
 
     <!-- Desktop Apps -->
-    <div class="desktop-apps">
+    <div 
+    class="desktop-apps">
 
       <!-- The Archive -->
       <div class="desktop-icon">
@@ -99,11 +101,22 @@
             Contact Me
           </p>
       </div>
+
+      <!-- Research -->
+      <div class="desktop-icon">
+        <img 
+        id="Researchopen"
+        src="./images/icons/Research.png"
+        class="app">
+          <p class="app-label">
+            Research
+          </p>
+      </div>
     </div>
 
     <!--The Archive Window-->
     <div
-    class="window"
+    class="window window-lg"
     id="TheArchive"
     style="
       display: none;
@@ -197,8 +210,16 @@
                 color: #AE341C;
                 font-family: 'Noto Serif', serif;
                 font-size: large;">
-                I build interactive, fun websites. I believe that engineering should
-                be considered a creative field.
+                I build interactive websites and other stuff. 
+              </p>
+
+              <p 
+              style="
+                color: #AE341C;
+                font-family: 'Noto Serif', serif;
+                font-size: large;">
+                I believe that engineering is a creative field.
+                Imagination comes to life with science.
               </p>
 
               <p 
@@ -213,7 +234,7 @@
 
             <div>
               <img
-              src="./images/AboutMePic.jpg"
+              src="./images/AboutMe.jpg"
               style="
                 height: auto;
                 width: min(180px, 30vh);  
@@ -230,10 +251,7 @@
           </div>
           
           <h2 
-          style="
-            color: #D60A46;                                                                                                                                                                                      
-            font-family: 'Noto Serif', serif;
-            margin-bottom: clamp(8px, 2vw, 10px);">
+          class="subhead">
             Software
           </h2>
 
@@ -242,10 +260,7 @@
           </div>
 
           <h2 
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            margin-bottom: clamp(8px, 2vw, 10px);">
+          class="subhead">
             Hardware
           </h2>
 
@@ -254,10 +269,7 @@
           </div> 
 
           <h2 
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            margin-bottom: 10px;">
+          class="subhead">
             Crochet
           </h2>
 
@@ -416,7 +428,7 @@
 
     <!--Photobooth Window-->
     <div
-    class="window"
+    class="window window-lg"
     id="Photobooth"
     style="
       display: none;
@@ -552,6 +564,104 @@
         </form>
       </div>
     </div>
+
+    <!--  Research Window-->
+    <div
+    class="window window-lg"
+    id="Research">
+      <div
+      class="windowheader"
+      id="Researchheader">
+        <p
+        class="headertext";>
+          Welcome
+        </p>
+       
+        <div 
+        class="closebutton"
+        id="Researchclose">
+          Close
+        </div>
+      </div>
+
+      <!--Research Window Content-->
+      <div
+      class="scroll-container"
+      style="
+        background-color: rgba(250, 245, 226, 0.75);
+        padding: clamp(16px, 3vw, 30px);
+        height: min(400px, 75vh);">
+
+        <!--Research Window Title-->
+        <div 
+        style="
+          justify-content: center;
+          align-items: center;
+          text-align: center;">
+          <h1
+          style="
+            color: #D60A46;
+            font-family: 'Noto Serif', serif;
+            font-size: xxx-large;
+            margin: 0;">
+            Research
+          </h1>
+
+          <p
+          style="
+            color: #AE341C;
+            font-family: 'Noto Serif', serif;
+            font-size: large;
+            margin-top: clamp(8px, 2vw, 10px);">
+            Shalom's Research Articles, Papers and Posters
+          <p> 
+        </div>
+        
+        <!--Research Window Body-->
+        <div
+        style="
+          justify-content: center;
+          align-items: center;
+          gap: clamp(16px, 3vw, 35px);">
+
+          <h2 
+          class="subhead">
+            Quantum Computing
+          </h2>
+
+          <div>
+            Lorem IPSUM..
+          </div>
+
+          <h2 
+          class="subhead">
+            Health and Saftey
+          </h2>
+
+          <div>
+            Lorem Ipsum..
+          </div> 
+
+          <h2 
+          class="subhead">
+            Sustainability
+          </h2>
+
+          <div>
+            Lorem Ipsum..
+          </div>
+
+          <h2 
+          class="subhead">
+            Education
+          </h2>
+
+          <div>
+            Lorem Ipsum..
+          </div>
+        </div>
+      </div>  
+    </div>
  
     <!--The Home Window-->
     <div
@@ -611,6 +721,23 @@
             Greetings! Thanks for stopping by
           <p>
         </div>
+      </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio 
+      id="natureAudio" loop>
+      <source src="./audio/birds.mp3" type="audio/mpeg">
+    </audio>
+
+    <!--Speaker-->
+    <div 
+    id="speakerContainer">
+      <i id="speakerIcon" 
+        class="fa-solid fa-volume-xmark"></i>
+
+      <div id="soundTip">
+        Sound is available. Click to listen.
       </div>
     </div>
   </body>

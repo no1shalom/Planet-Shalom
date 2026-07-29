@@ -23,7 +23,6 @@ body {
 }
 
 .topbar-item {
-    cursor:pointer;
     margin:0;
     background-color:rgba(255,255,255,0.5);
     padding:
@@ -34,18 +33,12 @@ body {
     font-size:clamp(0.75rem,2vw,1rem);
 }
 
-.decoration {
-    color:#CF244C;
-    cursor: pointer;
-}
-
 @media(max-width:600px){
     #topbar{
         top:2%;
         gap:8px;
         padding:0 10px;
     }
-
 
     .topbar-item{
         font-size:0.7rem;
@@ -76,8 +69,7 @@ body {
     position: absolute;
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%);
-    align-items: center;
+    transform: translate(-50%, -50%); 
     display: flex;
     flex-direction: column;
 }
@@ -393,4 +385,55 @@ img{
     transform: translateY(-2px);
 }
 
+.subhead{
+    color: #D60A46;                                                                                                                                                                                      
+    font-family: 'Noto Serif', serif;
+    margin-bottom: clamp(8px, 2vw, 10px);
+}
 
+.window-lg{
+    width: min(800px, 95vw);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#speakerContainer {
+    position: fixed;
+    bottom: clamp(12px, 3vw, 20px);
+    right: clamp(12px, 3vw, 20px);
+    z-index: 9999;
+}
+
+#speakerIcon {
+    font-size: clamp(24px, 5vw, 30px);
+    color: #D60A46;
+    cursor: pointer;
+    transition: .25s;
+    background: #F8E2E2;
+    padding: clamp(8px, 2vw, 10px);
+    border-radius: 12px;
+}
+
+#speakerIcon:hover{
+    transform:scale(1.15);
+    color:#AE341C;
+}
+
+#soundTip {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px);
+    width: min(260px, 80vw);
+    padding: clamp(10px, 2vw, 12px);
+    border-radius: 12px;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(8px);
+    color: #D60A46;
+    font-family: 'Noto Serif', serif;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s;
+}

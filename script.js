@@ -12,6 +12,7 @@ dragElement(document.getElementById("TheArchive"));
 dragElement(document.getElementById("Links"));
 dragElement(document.getElementById("Gallery"));
 dragElement(document.getElementById("ContactMe"));
+dragElement(document.getElementById("Research"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -91,6 +92,7 @@ const linksScreen = document.querySelector("#Links");
 const galleryScreen = document.querySelector("#Gallery");
 const photoboothScreen = document.querySelector("#Photobooth");
 const contactMeScreen = document.querySelector("#ContactMe");
+const researchScreen = document.querySelector("#Research");
 
 // Store all application windows here
 const windows = [
@@ -99,7 +101,8 @@ const windows = [
   linksScreen,
   galleryScreen,
   photoboothScreen,
-  contactMeScreen
+  contactMeScreen,
+  researchScreen
 ];
 
 // --Window Functions--
@@ -171,6 +174,12 @@ connectWindow(
   document.querySelector("#ContactMeopen"),
   document.querySelector("#ContactMeclose"),
   contactMeScreen
+);
+
+connectWindow(
+  document.querySelector("#Researchopen"),
+  document.querySelector("#Researchclose"),
+  researchScreen
 );
 
 // Displaying my Software Projects
@@ -303,21 +312,15 @@ hardwareProjects.forEach(project => {
 // Displaying Pictures in Gallery
 const gallery = [
   {
-    image: "images/gallery/hand warmers.png",
-    title: "Hackathon Winner",
-    description: "Won 1st place developing an educational platform."
+    image: "images/gallery/PosterPresent.jpg",
+    title: "Poster Presentation",
+    description: "Presenting my research poster on Automated Insulin Delivery."
   },
 
   {
-    image: "images/gallery/presentation.jpg",
-    title: "Conference Talk",
-    description: "Presented my AI research to over 150 attendees."
-  },
-
-  {
-    image: "images/gallery/deanslist.jpg",
-    title: "Dean's List",
-    description: "Recognized for academic excellence."
+    image: "images/gallery/PenroseC.jpg",
+    title: "Research Competition",
+    description: "Gold Award Certificate for the Penrose research competition"
   }
 ];
 
@@ -355,3 +358,40 @@ if (contactForm) {
   });
 }
 
+// Speaker for background music
+
+const audio = document.getElementById("natureAudio");
+const speaker = document.getElementById("speakerIcon");
+const tip = document.getElementById("soundTip");
+audio.volume = 0.15;
+
+// Show tooltip when website loads
+window.addEventListener("load", () => {
+  tip.style.opacity = "1";
+  setTimeout(() => {
+    tip.style.opacity = "0";
+  }, 6000);
+});
+
+// Show tooltip when hovering
+speaker.addEventListener("mouseenter", () => {
+  tip.style.opacity = "1";
+});
+
+speaker.addEventListener("mouseleave", () => {
+  tip.style.opacity = "0";
+});
+
+// Toggle audio
+speaker.addEventListener("click", () => {
+  if(audio.paused){
+    audio.play();
+    speaker.classList.remove("fa-volume-xmark");
+    speaker.classList.add("fa-volume-high");
+  }
+  else{
+    audio.pause();
+    speaker.classList.remove("fa-volume-high");
+    speaker.classList.add("fa-volume-xmark");
+  }
+});
