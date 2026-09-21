@@ -186,10 +186,10 @@ connectWindow(
 const sengProjects = [
   {
     title: "Planet Shalom",
-    image: "./images/sunset1.jpg",
+    image: "./projects/Planet_Shalom.png",
     description: "My portfolio as a web-based operating system.",
     github: "https://github.com/no1shalom/Planet-Shalom",
-    website: "https://website.com",
+    website: "https://no1shalom.github.io/Planet-Shalom/",
     }
   ];
 
