@@ -47,11 +47,22 @@
     <div 
     class="desktop-apps">
 
+      <!-- About Me -->
+      <div class="desktop-icon">
+        <img 
+        id="AboutMeopen"
+        src="./images/icons/PlanetShalom.png"
+        class="app">
+          <p class="app-label">
+            About Me
+          </p>
+      </div>
+
       <!-- The Archive -->
       <div class="desktop-icon">
         <img 
         id="TheArchiveopen"
-        src="./images/icons/PlanetShalom.png"
+        src="./images/icons/Archive.png"
         class="app">
           <p class="app-label">
             Archive
@@ -68,28 +79,6 @@
             Links
           </p>
       </div>
-      
-      <!-- Gallery -->
-      <div class="desktop-icon">
-        <img 
-        id="Galleryopen"
-        src="./images/icons/Gallery.png"
-        class="app">
-          <p class="app-label">
-            Gallery
-          </p>
-      </div>
-
-      <!-- Photobooth -->
-      <div class="desktop-icon">
-        <img 
-        id="Photoboothopen"
-        src="./images/icons/Camera.png"
-        class="app">
-          <p class="app-label">
-            Camera
-          </p>
-      </div>
 
       <!-- Contact Me -->
       <div class="desktop-icon">
@@ -101,23 +90,14 @@
             Contact Me
           </p>
       </div>
-
-      <!-- Research -->
-      <div class="desktop-icon">
-        <img 
-        id="Researchopen"
-        src="./images/icons/Research.png"
-        class="app">
-          <p class="app-label">
-            Research
-          </p>
-      </div>
     </div>
 
-    <!--The Archive Window-->
+
+    <!-- WINDOWS -->
+    <!--About Me Window-->
     <div
     class="window window-lg"
-    id="TheArchive"
+    id="AboutMe"
     style="
       display: none;
       width: min(800px, 95vw);
@@ -126,7 +106,7 @@
 
       <div
       class="windowheader"
-      id="TheArchiveheader">
+      id="AboutMeheader">
         <p
         class="headertext">
           Welcome
@@ -134,12 +114,12 @@
        
         <div 
         class="closebutton"
-        id="TheArchiveclose">
+        id="AboutMeclose">
           Close
         </div>
       </div>
 
-      <!--The Archive Window Content-->
+      <!--About Me Window Content-->
       <div
       class="scroll-container"
       style="
@@ -147,7 +127,7 @@
         padding: clamp(16px, 3vw, 30px);
         height: min(400px, 75vh);">
 
-        <!--The Archive Window Title-->
+        <!--About Me Window Title-->
           <div 
           style="
             justify-content: center;
@@ -159,7 +139,7 @@
                 font-family: 'Noto Serif', serif;
                 font-size: xxx-large;
                 margin: 0;">
-                The Archive
+                About Me
               </h1>
 
             <p
@@ -168,12 +148,12 @@
               font-family: 'Noto Serif', serif;
               font-size: large;
               margin-top: clamp(8px, 2vw, 10px);">
-              Shalom's Creative Portfolio
+              A very quick description of Shalom
             <p> 
           </div>
        
 
-        <!--The Archive Window Body-->
+        <!--About Me Window Body-->
         <div
         style="
           justify-content: center;
@@ -249,6 +229,75 @@
               </p>
             </div>
           </div>
+        </div> 
+      </div> 
+    </div>  
+
+    <!--The Archive Window-->
+    <div
+    class="window window-lg"
+    id="TheArchive"
+    style="
+      display: none;
+      width: min(800px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;">
+
+      <div
+      class="windowheader"
+      id="TheArchiveheader">
+        <p
+        class="headertext">
+          Welcome
+        </p>
+       
+        <div 
+        class="closebutton"
+        id="TheArchiveclose">
+          Close
+        </div>
+      </div>
+
+      <!--The Archive Window Content-->
+      <div
+      class="scroll-container"
+      style="
+        background-color: rgba(250, 245, 226, 0.75);
+        padding: clamp(16px, 3vw, 30px);
+        height: min(400px, 75vh);">
+
+        <!--The Archive Window Title-->
+          <div 
+          style="
+            justify-content: center;
+            align-items: center;
+            text-align: center;">
+              <h1
+              style="
+                color: #D60A46;
+                font-family: 'Noto Serif', serif;
+                font-size: xxx-large;
+                margin: 0;">
+                The Archive
+              </h1>
+
+            <p
+            style="
+              color: #AE341C;
+              font-family: 'Noto Serif', serif;
+              font-size: large;
+              margin-top: clamp(8px, 2vw, 10px);">
+              Shalom's Creative Portfolio
+            <p> 
+          </div>
+       
+
+        <!--The Archive Window Body-->
+        <div
+        style="
+          justify-content: center;
+          align-items: center;
+          gap: clamp(16px, 3vw, 35px);">
           
           <h2 
           class="subhead">
@@ -363,133 +412,6 @@
       </div> 
     </div>  
 
-    <!--Gallery Window-->
-    <div
-    class="window"
-    id="Gallery"
-    style="
-      display: none;
-      width: min(900px, 95vw);
-      height: min(600px, 80vh);">
-
-      <div
-      class="windowheader"
-      id="Galleryheader">
-        <p
-        class="headertext">
-          Welcome
-        </p>
-       
-        <div 
-        class="closebutton"
-        id="Galleryclose">
-          Close
-        </div>
-      </div>
-
-      <!--Gallery Window Content-->
-      <div
-      class="windowcontent scroll-container"
-      style="
-        background-color: rgba(250, 245, 226, 0.75);">
-
-        <!--Gallery Window Title-->
-        <div 
-        style="
-          justify-content: center;
-          align-items: center;
-          text-align: center;">
-
-          <h1
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            font-size: xxx-large;
-            margin: 0;">
-            Gallery
-          </h1>
-
-          <p
-          style="
-            color: #AE341C;
-            font-family: 'Noto Serif', serif;
-            font-size: large;
-            margin-bottom: clamp(8px, 2vw, 10px);">
-            Shalom's Museum of Accomplishments (and Failures)
-          <p> 
-        </div>
-       
-        <!--Gallery Window Body-->
-        <div id="galleryGrid" class="gallery-grid">
-         
-        </div>
-      </div>
-    </div>
-
-    <!--Photobooth Window-->
-    <div
-    class="window window-lg"
-    id="Photobooth"
-    style="
-      display: none;
-      width: min(700px, 80vh);
-      height: min(500px, 60vh);">
-
-      <div
-      class="windowheader"
-      id="Photoboothheader">
-        <p
-        class="headertext">
-          Welcome
-        </p>
-       
-        <div 
-        class="closebutton"
-        id="Photoboothclose">
-          Close
-        </div>
-      </div>
-
-      <!--Photobooth Window Content-->
-      <div
-      class="windowcontent scroll-container"
-      style="
-        background-color: rgba(250, 245, 226, 0.75);">
-
-        <!--Photobooth Window Title-->
-        <div 
-        style="
-          justify-content: center;
-          align-items: center;
-          text-align: center;">
-
-          <h1
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            font-size: xxx-large;
-            margin: 0;">
-            Photobooth
-          </h1>
-
-          <p
-          style="
-            color: #D22405;
-            font-family: 'Noto Serif', serif;
-            font-size: large;
-            margin-top: clamp(8px, 2vw, 10px);">
-            Get your very own Planet Shalom souvenir!<br>
-            Proof that you've landed on my planet :)
-          <p> 
-        </div>
-       
-        <!--Photobooth Window Body-->
-        <div>
-          Lorem Ipsum...
-        </div>
-      </div>
-    </div>
-
     <!--Contact Me Window-->
     <div
     class="window"
@@ -548,119 +470,23 @@
        
         <!--Contact Me Window Body-->
         <form id="contactForm" class="contact-form">
+          <input type="hidden" name="access_key" value="c3470bb1-438b-4b72-8629-426304bca6ec">
+          
           <div class="field-row">
             <label for="cm-name">Name</label>
-            <input id="cm-name" type="text" required>
+            <input id="cm-name" name="name" type="text" required>
           </div>
           <div class="field-row">
             <label for="cm-email">Your Email</label>
-            <input id="cm-email" type="email" required>
+            <input id="cm-email" name="email" type="email" required>
           </div>
           <div class="field-row">
             <label for="cm-msg">Message</label>
-            <textarea id="cm-msg" rows="4" required></textarea>
+            <textarea id="cm-msg" name="message" rows="4" required></textarea>
           </div>
           <button type="submit" class="contact-submit">Send</button>
         </form>
       </div>
-    </div>
-
-    <!--  Research Window-->
-    <div
-    class="window window-lg"
-    id="Research">
-      <div
-      class="windowheader"
-      id="Researchheader">
-        <p
-        class="headertext";>
-          Welcome
-        </p>
-       
-        <div 
-        class="closebutton"
-        id="Researchclose">
-          Close
-        </div>
-      </div>
-
-      <!--Research Window Content-->
-      <div
-      class="scroll-container"
-      style="
-        background-color: rgba(250, 245, 226, 0.75);
-        padding: clamp(16px, 3vw, 30px);
-        height: min(400px, 75vh);">
-
-        <!--Research Window Title-->
-        <div 
-        style="
-          justify-content: center;
-          align-items: center;
-          text-align: center;">
-          <h1
-          style="
-            color: #D60A46;
-            font-family: 'Noto Serif', serif;
-            font-size: xxx-large;
-            margin: 0;">
-            Research
-          </h1>
-
-          <p
-          style="
-            color: #AE341C;
-            font-family: 'Noto Serif', serif;
-            font-size: large;
-            margin-top: clamp(8px, 2vw, 10px);">
-            Shalom's Research Articles, Papers and Posters
-          <p> 
-        </div>
-        
-        <!--Research Window Body-->
-        <div
-        style="
-          justify-content: center;
-          align-items: center;
-          gap: clamp(16px, 3vw, 35px);">
-
-          <h2 
-          class="subhead">
-            Quantum Computing
-          </h2>
-
-          <div>
-            Lorem IPSUM..
-          </div>
-
-          <h2 
-          class="subhead">
-            Health and Saftey
-          </h2>
-
-          <div>
-            Lorem Ipsum..
-          </div> 
-
-          <h2 
-          class="subhead">
-            Sustainability
-          </h2>
-
-          <div>
-            Lorem Ipsum..
-          </div>
-
-          <h2 
-          class="subhead">
-            Education
-          </h2>
-
-          <div>
-            Lorem Ipsum..
-          </div>
-        </div>
-      </div>  
     </div>
  
     <!--The Home Window-->
@@ -730,7 +556,7 @@
       <source src="./audio/birds.mp3" type="audio/mpeg">
     </audio>
 
-    <!--Speaker-->
+    <!-- Speaker -->
     <div 
     id="speakerContainer">
       <i id="speakerIcon" 

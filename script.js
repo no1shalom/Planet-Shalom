@@ -8,11 +8,11 @@ console.log("JavaScript loaded!");
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("AboutMe"));
 dragElement(document.getElementById("TheArchive"));
 dragElement(document.getElementById("Links"));
-dragElement(document.getElementById("Gallery"));
 dragElement(document.getElementById("ContactMe"));
-dragElement(document.getElementById("Research"));
+
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -87,22 +87,19 @@ document.addEventListener('focusin', (e) => {
 
 // ---Window Elements---
 const welcomeScreen = document.querySelector("#welcome");
+const aboutMeScreen = document.querySelector("#AboutMe");
 const archiveScreen = document.querySelector("#TheArchive");
 const linksScreen = document.querySelector("#Links");
-const galleryScreen = document.querySelector("#Gallery");
-const photoboothScreen = document.querySelector("#Photobooth");
 const contactMeScreen = document.querySelector("#ContactMe");
-const researchScreen = document.querySelector("#Research");
+
 
 // Store all application windows here
 const windows = [
   welcomeScreen,
+  aboutMeScreen,
   archiveScreen,
   linksScreen,
-  galleryScreen,
-  photoboothScreen,
-  contactMeScreen,
-  researchScreen
+  contactMeScreen
 ];
 
 // --Window Functions--
@@ -119,20 +116,33 @@ function closeWindow(windowElement) {
   windowElement.style.display = "none";
 }
 
+const desktopIcons = document.querySelector(".desktop-apps");
+
 // Open one window and close the rest
 function openWindow(windowElement) {
   closeAllWindows();
   windowElement.style.display = "flex";
+
+  // Icons only show alongside the Welcome window
+  if (desktopIcons) {
+    desktopIcons.style.display = (windowElement === welcomeScreen) ? "grid" : "none";
+  }
 }
 
 // Connect a pair of buttons to a window
-function connectWindow(openButton, closeButton, windowElement) {
+function connectWindow(openButton, closeButton, windowElement, isHome = false) {
   openButton.addEventListener("click", () => {
     openWindow(windowElement);
   });
 
   closeButton.addEventListener("click", () => {
-    closeWindow(windowElement);
+    if (isHome) {
+      // Closing Welcome itself just hides it — no window to "return" to
+      closeWindow(windowElement);
+    } else {
+      // Closing any app returns to Welcome + icons together
+      openWindow(welcomeScreen);
+    }
   });
 }
 
@@ -143,7 +153,14 @@ openWindow(welcomeScreen);
 connectWindow(
   document.querySelector("#welcomeopen"),
   document.querySelector("#welcomeclose"),
-  welcomeScreen
+  welcomeScreen,
+  true
+);
+
+connectWindow(
+  document.querySelector("#AboutMeopen"),
+  document.querySelector("#AboutMeclose"),
+  aboutMeScreen
 );
 
 connectWindow(
@@ -158,28 +175,11 @@ connectWindow(
   linksScreen
 );
 
-connectWindow(
-  document.querySelector("#Galleryopen"),
-  document.querySelector("#Galleryclose"),
-  galleryScreen
-);
-
-connectWindow(
-  document.querySelector("#Photoboothopen"),
-  document.querySelector("#Photoboothclose"),
-  photoboothScreen
-);
 
 connectWindow(
   document.querySelector("#ContactMeopen"),
   document.querySelector("#ContactMeclose"),
   contactMeScreen
-);
-
-connectWindow(
-  document.querySelector("#Researchopen"),
-  document.querySelector("#Researchclose"),
-  researchScreen
 );
 
 // Displaying my Software Projects
@@ -189,8 +189,7 @@ const sengProjects = [
     image: "./images/sunset1.jpg",
     description: "My portfolio as a web-based operating system.",
     github: "https://github.com/no1shalom/Planet-Shalom",
-    website: "https://yourwebsite.com",
-    tech: "HTML, CSS, JavaScript"
+    website: "https://website.com",
     }
   ];
 
@@ -215,7 +214,11 @@ sengProjects.forEach(project => {
               align-items: centre">
 
               <h2 class="project-title">
-                  ${project.title}
+                  ${
+                    project.website
+                    ? `<a href="${project.website}" target="_blank" rel="noopener noreferrer" class="project-title-link">${project.title}</a>`
+                    : project.title
+                  }
               </h2>
 
               <a
@@ -233,22 +236,6 @@ sengProjects.forEach(project => {
           <p class="project-description">
               ${project.description}
           </p>
-
-            ${
-              project.website
-              ? `
-                <a
-                  href="${project.website}"
-                  target="_blank"
-                  class="project-link secondary">
-                  Visit website →
-                </a>
-                `
-                : ""
-            }
-          <div class="technologies">
-            ${project.tech}
-          </div>
         </div>
     `;
     sengContainer.appendChild(card);
@@ -261,8 +248,7 @@ const hardwareProjects = [
     title: "Tester",
     image: "./images/sunset1.jpg",
     description: "I'm just testing.",
-    page: "./projects/tester.html",
-    tech: "HTML, CSS, JavaScript"
+    page: "./projects/tester.html"
     }
   ];
 
@@ -282,84 +268,61 @@ hardwareProjects.forEach(project => {
         <div class="project-content">
 
             <h2 class="project-title">
-                ${project.title}
+                ${ project.page
+                    ? `<a href="${project.page}" class="project-title-link">${project.title}</a>`
+                    : project.title
+                  }
             </h2>
 
             <p class="project-description">
                 ${project.description}
             </p>
-
-            ${
-                project.page
-                    ? `
-                    <a
-                        href="${project.page}"
-                        class="project-link secondary"
-                    >
-                        Read more →
-                    </a>
-                    `
-                    : ""
-            }
-            <div class="technologies">
-                ${project.tech}
-            </div>
-        </div>
     `;
     hardwareContainer.appendChild(card);
 });
 
-// Displaying Pictures in Gallery
-const gallery = [
-  {
-    image: "images/gallery/PosterPresent.jpg",
-    title: "Poster Presentation",
-    description: "Presenting my research poster on Automated Insulin Delivery."
-  },
-
-  {
-    image: "images/gallery/PenroseC.jpg",
-    title: "Research Competition",
-    description: "Gold Award Certificate for the Penrose research competition"
-  }
-];
-
-const grid = document.getElementById("galleryGrid");
-
-gallery.forEach(photo => {
-  const card = document.createElement("div");
-  card.className = "gallery-card";
-  card.innerHTML = `
-    <img src="${photo.image}" alt="${photo.title}">
-
-    <div class="overlay">
-      <h3>${photo.title}</h3>
-      <p>${photo.description}</p>
-    </div>
-    `;
-    grid.appendChild(card);
-});
 
 // Contact form -> opens the visitor's email client with everything pre-filled
 const contactForm = document.getElementById("contactForm");
+const contactStatus = contactForm ? contactForm.querySelector(".contact-status") : null;
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("cm-name").value;
-    const email = document.getElementById("cm-email").value;
-    const msg = document.getElementById("cm-msg").value;
+    contactForm.classList.add("sending"); // your existing spinner effect
 
-    const subject = encodeURIComponent(`Message from ${name} via Planet Shalom`);
-    const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: contactForm.querySelector('[name="access_key"]').value,
+          name: document.getElementById("cm-name").value,
+          email: document.getElementById("cm-email").value,
+          message: document.getElementById("cm-msg").value,
+        }),
+      });
 
-    window.location.href = `mailto:shalabdulai@gmail.com?subject=${subject}&body=${body}`;
+      const result = await response.json();
+
+      if (result.success) {
+        if (contactStatus) contactStatus.querySelector("p").textContent = "Message sent! I'll get back to you soon.";
+      } else {
+        if (contactStatus) contactStatus.querySelector("p").textContent = "Something went wrong — please try again.";
+      }
+    } catch (err) {
+      if (contactStatus) contactStatus.querySelector("p").textContent = "Something went wrong — please try again.";
+    }
+
+    setTimeout(() => {
+      contactForm.classList.remove("sending");
+      contactForm.reset();
+    }, 2500);
   });
 }
 
 // Speaker for background music
-
 const audio = document.getElementById("natureAudio");
 const speaker = document.getElementById("speakerIcon");
 const tip = document.getElementById("soundTip");
@@ -395,3 +358,4 @@ speaker.addEventListener("click", () => {
     speaker.classList.add("fa-volume-xmark");
   }
 });
+

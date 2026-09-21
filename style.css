@@ -54,7 +54,17 @@ body {
     color:rgb(137,8,8);
     cursor:pointer;
     margin-left:auto;
-    padding-right:6px 10px;
+    height: 32px;
+    width: 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 8px;
+    transition: background-color .15s ease;
+}
+
+.closebutton:hover{
+   font-weight: bold;
 }
     
 
@@ -77,7 +87,8 @@ body {
 .windowheader {
     background-color:rgba(250, 200, 100, 0.25);
     backdrop-filter: blur(10px);
-    padding: 8px;
+    padding: 0 8px;
+    height: 35px;
     width: 100%;
     user-select: none;
     cursor: grab;
@@ -125,12 +136,14 @@ body {
 }
 
 .desktop-apps {
-    padding-top: 70px;
-    padding-left: 16px;
-    width: fit-content;
+    position: fixed;
+    top: calc(50% + 130px);
+    left: 50%;
+    transform: translateX(-50%);
     display: grid;
-    grid-template-columns: repeat(2, 64px);
-    gap:20px;
+    grid-template-columns: repeat(4, 64px);
+    gap: 20px;
+    z-index: 1;
 }
 
 .desktop-icon {
@@ -185,12 +198,13 @@ body {
     border-radius: 15px;
     color:rgb(248, 228, 209);
     overflow: hidden;
-    margin-bottom: 5%;
+    transition: .3s;
+    margin-bottom: 3%;
 }
 
 .project-image{
     width:100%;
-    aspect-ratio:16/7;
+    aspect-ratio:16/6;
     height:auto;
     object-fit:cover;
 }
@@ -200,28 +214,24 @@ body {
 }
 
 .project-title{
-    margin-bottom:8px;
+    margin-bottom:6px;
     font-size: clamp(1.1rem, 3vw, 1.4rem);
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .project-description{
-    line-height: 1.4;
+    line-height: 1.3;
     font-family: 'Noto Serif', serif;
     font-size: clamp(0.7rem, 1.8vw, 0.85rem);
 }
 
-.project-link{
-    color:rgb(248, 228, 209);
-    display: inline-block;
-    margin: 10px 0 15px;
-    text-decoration:none;
-    font-weight:bold;
+.project-title-link{
+    color: inherit;
+    text-decoration: none;
 }
 
-.technologies{
-    font-family: 'Noto Serif', serif;
-    line-height:1.5;
+.project-title-link:hover{
+    text-decoration: underline;
 }
 
 .hardware-hero-img{
@@ -251,53 +261,6 @@ body {
     transform:scale(1.15);
 }
 
-.gallery-grid{
-    display:grid;
-    padding: 1%;
-    grid-template-columns:
-        repeat(auto-fill,minmax(190px,1fr));
-    gap: 2%;
-}
-
-.gallery-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:15px;
-}
-
-.gallery-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.35s;
-}
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background: rgba(255, 255, 255, 0.5);
-    color: #D60A46;
-    font-family: 'Noto Serif', serif;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    opacity:0;
-    transition:.35s;
-    padding:20px;
-    text-align:center;
-}
-
-.gallery-card:hover img{
-    filter:blur(15px);
-    transform:scale(1.08);
-}
-
-.gallery-card:hover .overlay{
-    opacity:1;
-}
-
 *{
     box-sizing:border-box;
 }
@@ -309,15 +272,13 @@ img{
 
 @media(max-width:600px){
     .desktop-apps{
-        display:grid;
-        grid-template-columns:
-            repeat(2, 64px);
-        gap:15px;
+        top: calc(50% + 160px);
+        grid-template-columns: repeat(4, 56px);
+        gap: 12px;
     }
 
     .app{
-        width:56px;
-        height:48px;
+        width:44px;
     }
 }
 
@@ -437,3 +398,4 @@ img{
     pointer-events: none;
     transition: opacity .35s;
 }
+
