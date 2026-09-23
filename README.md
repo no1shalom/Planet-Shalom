@@ -26,7 +26,7 @@ A portoflio website, designed like an operating system, to display my projects.
 - Tells people about me and what I do.
 - Allows people to contact me.
 - Displays my engineering and craft projects.
-- Provides my different social media links.
+- Provides my social media links.
 
 **Libraries & Tools**
 - [Noto Serif](https://fonts.google.com/specimen/Noto+Serif) and
